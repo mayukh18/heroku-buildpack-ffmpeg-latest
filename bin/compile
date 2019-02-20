@@ -16,7 +16,9 @@ mkdir -p $VENDOR_DIR
 cd $VENDOR_DIR
 mkdir -p ffmpeg
 cd ffmpeg
-curl -L --silent "https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz" | tar xJ --strip-components=1
+curl https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz -O
+tar -xvf "ffmpeg-git-amd64-static.tar.xz" --strip-components=1
+rm -rf ffmpeg-git-amd64-static.tar.xz
 
 echo "exporting PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/ffmpeg.sh"
